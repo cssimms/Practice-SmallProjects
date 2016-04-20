@@ -1,10 +1,13 @@
 var React = require("react"),
-    ClickStore = require("../stores/clickStore.js");
+    ClickStore = require("../stores/clickStore.js"),
+    clickActions = require('../actions/click_actions');
 
 var ClickCounter = React.createClass({
+
   getInitialState: function(){
     return {count: ClickStore.count()};
   },
+
   _countChanged: function(){
     this.setState({count: ClickStore.count()});
   },
