@@ -1,4 +1,4 @@
-var Store = require('flux/utils').store;
+var Store = require('flux/utils').Store;
 var dispatcher = require('../dispatcher');
 
 var _clickCount = 0;

@@ -11,13 +11,15 @@ var ClickCounter = React.createClass({
   _countChanged: function(){
     this.setState({count: ClickStore.count()});
   },
+
   componentDidMount: function () {
-    ClickStore.addChangeHandler(this._countChanged);
+    ClickStore.addListener(this._countChanged);
   },
+
   click: function(e){
-    e.preventDefault();
-    ClickStore.increment();
+    clickActions.increment();
   },
+
   render: function(){
     return (
       <div>
