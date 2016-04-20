@@ -1,27 +1,18 @@
-var _clickCount = 0,
-    _handlers = [];
+var Store = require('flux/utils').store;
+var dispatcher = require('../dispatcher');
 
-var ClickStore = {
-  count: function () {
-    return _clickCount;
-  },
-  increment: function(){
+var _clickCount = 0;
+
+var ClickStore = new Store(dispatcher);
+
+ClickStore.count = function(){
+  return _clickCount;
+};
+
+ClickStore.__onDispatch = function(payload){
+  if(payload.actionType === "COUNT"){
     _clickCount++;
-    ClickStore.changed();
-  },
-  addChangeHandler: function(handler){
-    _handlers.push(handler);
-  },
-  removeChangeHandler: function(handler){
-    var idx = _handlers.indexOf(handler);
-    if (idx !== -1){
-      _handlers.splice(idx, 1);
-    }
-  },
-  changed: function(){
-    _handlers.forEach(function(handler){
-      handler();
-    });
+    ClickStore.__emitChange();
   }
 };
 
