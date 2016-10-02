@@ -1,0 +1,11 @@
+<h1>All Bands</h1>
+
+<label><%= flash.now[:destroyed] %></label><br><br><br>
+
+<% @bands.each do |band| %>
+<%= link_to "#{band.name}", band_url(band)%><br><br>
+<%= button_to "Remove Band", band_url(band), method:"delete" %><br><br><br>
+<% end %>
+
+
+<%= button_to "Create New Band", new_band_url, method:"get" %><br>

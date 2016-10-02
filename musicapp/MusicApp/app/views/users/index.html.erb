@@ -1,0 +1,5 @@
+<% @users.each do |user| %>
+<%= user.email %><br>
+<% end %>
+
+<%= button_to "Log In!", new_session_url, method: :get %>

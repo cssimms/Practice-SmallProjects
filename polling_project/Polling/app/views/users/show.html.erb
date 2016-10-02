@@ -1,0 +1,4 @@
+<h1>User Info</h1>
+  <%= "#{@user.user_name}, created at: #{@user.created_at}" %>
+
+<%= button_to("Edit User", edit_user_url, method: "get") %>

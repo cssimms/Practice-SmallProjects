@@ -1,0 +1,14 @@
+<p><%= link_to "Band List", bands_url %></p>
+
+<h1><%= @band.name %></h1>
+<h3> Albums </h3>
+<% @band.albums.each do |album| %>
+<%= flash[:errors] %>
+  <%= album.name %> <%= button_to "Remove Album", album_url(album), method: "delete" %>
+   <% if album.live %>
+   <%= "Recorded Live" %>
+   <% end %><br><br>
+<% end %>
+
+<%= link_to "Add Album", new_band_album_url(@band) %><br>
+<%= button_to "Change Band Name", edit_band_url(@band), method: "get" %><br>

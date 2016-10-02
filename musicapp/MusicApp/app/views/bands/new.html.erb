@@ -1,0 +1,6 @@
+<h1>Enter new band name:</h1><br><br>
+<%= render "form",
+    name: @band.name,
+    url: bands_url,
+    method: "post",
+    button:"Submit New Band" %>

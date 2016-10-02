@@ -1,0 +1,24 @@
+<% if user.persisted?
+  #update options
+     verb ='patch'
+     url = user_url(user)
+     button = 'Submit Changes'
+   else
+  #create options
+     verb = 'post'
+     url = users_url
+     button = 'Submit New User'
+   end
+%>
+<form action="<%=url%>" method="post">
+  <input name="_method" type="hidden" value="<%= verb %>">
+  <label for="user_name">User Name</label><br>
+  <label for="user_name"> <%= flash.now[:error] %></label><br>
+  <input
+    type="text"
+    name="user[user_name]"
+    value="<%= user.user_name %>"
+    id="user_name"><br><br>
+
+  <input type="submit" value="<%= button %>">
+</form>

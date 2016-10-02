@@ -1,0 +1,42 @@
+<h1>Add Album</h1>
+
+<form action="<%= albums_url%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+  <%=flash.now[:errors]  %><br>
+<label>Album Name
+  <input type="text" name="album[name]" value="<%= @album.name %>">
+</label><br>
+
+<label>Band
+  <select name="album[band]">
+    <option value="<%= %>">
+  </select>
+</label>
+
+<label>Live
+<input type="radio" name="album[live]" value="true" <%="checked" if @album.live %> >
+</label><br>
+
+<label>Studio
+<input type="radio" name="album[live]" value="false" <%="checked" if @album.live %> >
+</label><br>
+
+
+<input type="submit" value="Add Album">
+
+</form>
+
+dropdown
+
+<label>Band
+   <select name="album[band_id]">
+       <% Band.all.each do |band| %>
+           <option
+               <%= "selected" if album.band_id == band.id %>
+               value="<%= band.id %>">
+               <%= band.name %>
+           </option>
+       <% end %>
+   </select>
+ </label>
