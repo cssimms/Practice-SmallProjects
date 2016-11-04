@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-document.addEventListener('DOMConetentLoaded', () => {
+class Widgets extends React.component {
+  render() {
+    return(
+      <div>Hello?</div>
+    );
+  }
+}
+
+console.log('hit listener');
+document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Widgets>Hello?</Widgets>,
+    <Widgets/>,
     document.getElementById('root')
   );
 });
