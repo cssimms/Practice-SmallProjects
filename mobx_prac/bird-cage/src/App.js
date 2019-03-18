@@ -1,25 +1,60 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { inject, observer } from 'mobx-react';
 
+@inject( 'BirdStore' )
+
+@observer
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.addDatBurb = this.addDatBurb.bind(this);
+  }
+
+  addDatBurb( event ) {
+    event.preventDefault();
+
+    const bird = this.bird.value;
+    this.props.BirdStore.addBird(bird);
+    this.bird.value = '';
+  }
+
+  getBurbList() {
+    return (
+      this.props.BirdStore.birds.map( (bird, index) => {
+        return (
+          <li id={index}>{bird}</li>
+        )
+      })
+    )
+  }
+
   render() {
+     const { BirdStore } = this.props;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h2>You gots {BirdStore.birdCount || 0} burbs</h2>
+
+        <br/>
+
+        <form onSubmit={this.addDatBurb}>
+          <input
+            type="text"
+            placeholder="Enter ur burb"
+            ref={ input => this.bird = input }
+          />
+          <button>
+            Add da Burb.
+          </button>
+        </form>
+
+        <br/>
+
+        <ul>
+          { this.getBurbList() }
+        </ul>
+
       </div>
     );
   }
