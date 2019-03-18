@@ -21,11 +21,9 @@ class App extends Component {
 
   getBurbList() {
     return (
-      this.props.BirdStore.birds.map( (bird, index) => {
-        return (
-          <li id={index}>{bird}</li>
-        )
-      })
+      this.props.BirdStore.birds.map( (bird, index) => (
+          <li key={index}>{bird}</li>
+      ))
     )
   }
 
