@@ -1,7 +1,25 @@
 /**
 Collection of small problems I've completed. The sentimental value is the only reason to keep these, honestly.
-
 */
+
+// Async Promise stuff
+const discounts = [
+  { code: 'first-month-free' },
+  { code: 'annual-sale' },
+];
+
+function findDiscountCode(code) {
+  const discount = discounts.find(d => d.code === code);
+  if (discount === undefined) {
+    return Promise.reject(new Error('discount does not exist'));
+  } else {
+    return Promise.resolve(discount);
+  }
+}
+
+const result = findDiscountCode('for-free').catch(() => { })
+console.log('Should resolve with undefined: ', await result)
+
 
 const reverseString = (string) => {
   const reversed = [];

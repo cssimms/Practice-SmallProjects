@@ -2,7 +2,7 @@
  PART 1: implement a fuzzy search for matching foods to their synonyms, and whether they are
  compostable
 
-  ex: tomatoes: yes, beef: no, cow: now, avocado: yes
+  ex: tomatoes: yes, beef: no, cow: no, avocado: yes
 
 
 
