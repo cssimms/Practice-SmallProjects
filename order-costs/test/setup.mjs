@@ -1,6 +1,0 @@
-// Basic test setup file ...
-// import { register } from 'node:module';
-
-// register('some-typescript-loader');
-// TypeScript is supported hereafter
-// BUT other test/setup.*.mjs files still must be plain JavaScript!

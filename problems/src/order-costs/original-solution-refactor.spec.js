@@ -1,5 +1,4 @@
-import assert from 'node:assert/strict';
-import { describe, it } from 'node:test';
+// import { describe } from 'jest'
 import { calculateCost, calculateShippingCost } from './original-solution-refactor.js'
 
 /* Test data */
@@ -98,25 +97,27 @@ const itemData = {
     ]
 }
 
-describe('calculateShippingCost()', () => {
-    it('us order should work', () => {
-        const result = calculateShippingCost(usOrder, costMatrix)
-        assert.equal(result, 14700)
+describe('order-costs', () => {
+    describe('calculateShippingCost()', () => {
+        it('us order should work', () => {
+            const result = calculateShippingCost(usOrder, costMatrix)
+            expect(result).toEqual(14700)
+        });
+        it('ca order should work', () => {
+            const result = calculateShippingCost(caOrder, costMatrix)
+            expect(result).toEqual(19100)
+        });
     });
-    it('ca order should work', () => {
-        const result = calculateShippingCost(caOrder, costMatrix)
-        assert.equal(result, 19100)
-    });
-});
 
-describe('calculateCost()', () => {
-    it('should count 2 laptops with fixed price correctly', () => {
-        const result = calculateCost(itemData, 2)
-        assert.equal(result, 1000)
-    })
+    describe('calculateCost()', () => {
+        it('should count 2 laptops with fixed price correctly', () => {
+            const result = calculateCost(itemData, 2)
+            expect(result).toEqual(1000)
+        })
 
-    it('should count 3 laptops with fixed and incremental price correctly', () => {
-        const result = calculateCost(itemData, 3)
-        assert.equal(result, 1900)
+        it('should count 3 laptops with fixed and incremental price correctly', () => {
+            const result = calculateCost(itemData, 3)
+            expect(result).toEqual(1900)
+        })
     })
 })

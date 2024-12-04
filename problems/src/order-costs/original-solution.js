@@ -1,5 +1,5 @@
 /*
-Originally taken 12/3/24 for stripe's Money as a Service team, senior full stack eng.
+Originally taken 12/3/24 for a technical screen.
 Part 3 from the strip technical screen, this is the 2nd "add on" problem.
 */
 
