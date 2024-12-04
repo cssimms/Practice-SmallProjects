@@ -1,0 +1,26 @@
+form {
+    display: flex;
+    justify-content: start;
+    padding: 0;
+}
+
+#search-button {
+    line-height: 2em;
+    border-radius: 10px;
+    background-color: lightblue;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 5px;
+    margin: 0;
+    border: 0;
+}
+
+#search-field {
+    width: 400px;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 5px;
+    margin: 0;
+    border-right: 0;
+}
