@@ -1,18 +1,12 @@
+/*
+Originally taken 12/3/24 for stripe's Money as a Service team, senior full stack eng.
+Part 3 from the strip technical screen, this is the 2nd "add on" problem.
+*/
+
 // There are two different types of quantity based discounts: Fixed and incremental.
-
-
-
 // Fixed: It doesn't matter how many items are in the range - the same amount is paid. So if there is a range from 0 - 5 with a cost of 500 it doesn't matter if there was one, two, three, four or five items ordered. The total cost for any number of units in that range would be 500.
-
-
 // Incremental: Each unit in this range is charged an additional shipping cost per unit. This is what you implemented in part 2.
-
-
-
 // The order remains unchanged and the shipping cost matrix has been updated like the following:
-
-
-
 // Order:
 // {
 //   "country": "US", // or "CA" for the CA order
@@ -21,9 +15,6 @@
 //     {"product": "laptop", "quantity": 5}
 //   ]
 // }
-
-
-
 // Shipping Cost:
 // {
 //   "US": [
@@ -41,7 +32,6 @@
 //     {
 //       "product": "laptop",
 //       "costs": [
-
 //         {
 //           "type": "fixed",
 //           "minQuantity": 0,
@@ -88,29 +78,10 @@
 //     }
 //   ]
 // }
-
-
 // Update the function calculate_shipping_cost to now calculate shipping based upon the tiered discount.
-
-
-
 // Examples:
-
-
-
 // calculate_shipping_cost(order_us, shipping_cost) == 14700
 // calculate_shipping_cost(order_ca, shipping_cost) == 19100
-process.stdin.resume();
-process.stdin.setEncoding("ascii");
-var input = "";
-process.stdin.on("data", function (chunk) {
-    input += chunk;
-});
-process.stdin.on("end", function () {
-    // now we can read/parse input
-});
-
-
 
 function calculateCost(itemData, quantity) {
     let sum = 0
