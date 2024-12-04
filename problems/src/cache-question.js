@@ -1,10 +1,20 @@
+/**
+ * This might be a harder one to reproduce, as we used an API key for the given endpiont that is no longer valid.
+ * However, when practicing this one again I would do something like -
+ *
+ * Create an http client that fetches data from a GET endoint, passing date and currency code values. The API should return currency conversion rates between
+ * the codes passed.
+ *
+ * Cache the responses such that future requests using the client don't need to hit the API.
+ *
+ */
 // write a http client to fetch data from this endpoint -
 // https://apilayer.com/marketplace/exchangerates_data-api#endpoints
 
 const axios = require("axios");
 const { result } = require("lodash");
 
-// then write a cache to store results for given parameters (base currency and )
+// then write a cache to store results for given parameters (base currency and date)
 
 const localCache = {
   "2021-09-10": {
@@ -47,7 +57,7 @@ const fetchData = async (date, baseCurrency, outputSymbols) => {
   console.log("fetching data for...", date, base, symbols);
   const returnedData = await axios.get(url, {
     headers: {
-      apikey: "8QyUW3dCi5FcfhoOtL3clGuso8LuiAl8",
+      apikey: "REDACTED",
     },
     params: {
       base: base,
