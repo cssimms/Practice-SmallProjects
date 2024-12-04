@@ -3,3 +3,4 @@ bundle.js
 bundle.js.map
 *.log
 interview
+.DS_Store
