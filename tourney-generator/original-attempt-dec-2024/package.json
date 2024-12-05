@@ -1,0 +1,30 @@
+{
+  "name": "tourney-refactor",
+  "version": "1.0.0",
+  "description": "Interview challenge for Wefunder",
+  "license": "MIT",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "pg": "^8.3.0",
+    "sequelize": "^6.3.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "choma": "^1.2.1",
+    "faker": "^4.1.0",
+    "jade": "^1.11.0",
+    "lodash": "^4.17.20",
+    "mocha": "^8.1.1",
+    "nodemon": "^2.0.4",
+    "proxyquire": "^2.1.3",
+    "sequelize-cli": "^6.2.0",
+    "sequelize-test-helpers": "^1.2.3",
+    "sinon": "^9.0.3"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --require choma --exit test/*.test.js test/**/*.test.js"
+  }
+}

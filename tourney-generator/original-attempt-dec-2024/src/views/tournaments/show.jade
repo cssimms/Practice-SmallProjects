@@ -1,0 +1,36 @@
+extends ../layout.jade
+
+// TODO - need to update to accommidate the inital table structure of the round robin tournament, see backet_table_builder
+block content
+  div
+    a(href="/tournaments") < All Tournaments
+
+  h1 #{tournament.name}
+
+  table(border=2)
+    tr
+      each round in rounds
+        th(width=200) Round #{round.number}
+
+    each row in rowsAndCells
+      tr
+        each cell in row
+          td(rowspan=cell.rowspan,style="padding: 10px")
+            div
+              strong
+                a(href="/matches/#{cell.match.id}/edit") Match ID #{cell.match.id}
+
+            - let homeUser = cell.match.homeUser
+            if homeUser
+              div #{homeUser.name}
+                if cell.match.homeScore
+                  span (#{cell.match.homeScore})
+            else
+              div (no one)
+            div VS
+            if cell.match.awayUser
+              div #{cell.match.awayUser.name}
+                if cell.match.awayScore
+                  span (#{cell.match.awayScore})
+            else
+              div (no one)

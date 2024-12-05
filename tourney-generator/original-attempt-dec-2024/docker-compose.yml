@@ -1,0 +1,39 @@
+version: "3"
+services:
+  web:
+    depends_on:
+      - pg
+    container_name: "web"
+    command: nodemon src/index.js
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      #- DATABASE_URL=postgres://postgres:password@postgres:5432/tourney
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+
+    volumes:
+      - ./src:/home/node/app/src
+      - ./db:/home/node/app/db
+      - ./test:/home/node/app/test
+      - ./public:/home/node/app/public
+
+  pg:
+    image: "postgres:12"
+    container_name: "postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pg/db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+        #- POSTGRES_DB=tourney
+
+# pgadmin:
+#   image: chorss/docker-pgadmin4
+#   ports:
+#     - 5050:5050
+
