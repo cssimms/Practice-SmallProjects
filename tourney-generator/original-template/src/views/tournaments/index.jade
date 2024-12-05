@@ -1,0 +1,10 @@
+extends ../layout.jade
+
+block content
+  h1 tournaments#index
+
+  ul
+  each tournament in tournaments
+    li
+      a(href="/tournaments/"+tournament.id) Tournament ID #{tournament.id}
+

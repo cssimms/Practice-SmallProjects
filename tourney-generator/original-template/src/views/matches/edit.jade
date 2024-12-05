@@ -1,0 +1,28 @@
+extends ../layout.jade
+
+block content
+  div
+    a(href="/tournaments/"+match.round.tournament.id) < Back To Tournament
+
+
+  if error
+    strong #{error}
+    br
+
+  form(action='/matches/'+match.id+'/results', method='POST')
+    if match.homeUser
+      div
+        label
+          strong #{match.homeUser.name} &lt;#{match.homeUser.email}&gt;'s Score
+          br
+          input(type='number', name='homeScore')
+
+    if match.awayUser
+      div
+        label
+          strong #{match.awayUser.name} &lt;#{match.awayUser.email}&gt;'s Score
+          br
+          input(type='number', name='awayScore')
+
+    input(type='submit', value='Update')
+
